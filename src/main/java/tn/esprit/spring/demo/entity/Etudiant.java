@@ -20,7 +20,8 @@ public class Etudiant implements Serializable {
     private String prenomE;
     private String nomE;
 
-
+    @Enumerated(EnumType.STRING)  // Store enum as text in DB
+    private Niveau niveau;
     @ManyToOne
     private Departement departement;
 
