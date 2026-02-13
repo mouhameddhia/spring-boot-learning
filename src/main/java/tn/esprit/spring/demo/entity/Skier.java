@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "skier")
@@ -32,6 +33,14 @@ public class Skier {
     @Column(name = "city")
     private String city;
 
+    @ManyToMany
+    private Set<Piste> pistes;
+
+    @OneToMany(mappedBy = "skier")
+    private Set<Registration> registrations;
+
+    @OneToOne(cascade = CascadeType.ALL)  // strong relationship
+    private Subscription subscription;
 
     // Getters and Setters
     public Long getNumSkier() {

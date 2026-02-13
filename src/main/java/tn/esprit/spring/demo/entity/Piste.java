@@ -3,6 +3,8 @@ package tn.esprit.spring.demo.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 
 @Entity
 @Table(name = "piste")
@@ -28,6 +30,8 @@ public class Piste {
     @Column(name = "slope")
     private int slope;
 
+    @ManyToMany(mappedBy = "pistes")
+    private Set<Skier> skiers;
 
     // Getters and Setters
     public Long getNumPiste() {

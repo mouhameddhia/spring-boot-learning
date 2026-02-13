@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "instructor")
@@ -29,6 +30,8 @@ public class Instructor {
     @Temporal(TemporalType.DATE)
     private Date dateOfHire;
 
+    @OneToMany
+    private Set<Course> courses;
 
     // Getters and Setters
     public Long getNumInstructor() {

@@ -19,6 +19,12 @@ public class Registration {
     @Column(name = "num_week")
     private int numWeek;
 
+    @ManyToOne
+    private Skier skier;
+
+    @ManyToOne
+    @JoinColumn(name = "course_id")  // foreign key column
+    private Course course;
 
 
     public Registration(int numWeek) {

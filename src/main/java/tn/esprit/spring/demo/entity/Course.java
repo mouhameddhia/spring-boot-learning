@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "course")
 @NoArgsConstructor
@@ -34,6 +36,8 @@ public class Course {
     @Column(name = "time_slot")
     private int timeSlot;
 
+    @OneToMany(mappedBy = "course")
+    private Set<Registration> registrations;
 
 
     // Getters and Setters
